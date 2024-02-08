@@ -13,12 +13,14 @@
       widget.dataset.mooncolor = '#ffffff'; // Adjust moon color for dark mode
       widget.dataset.cloudcolor = '#ffffff'; // Adjust cloud color for dark mode
       widget.dataset.cloudfill = '#000000'; // Adjust cloud fill color for dark mode
+      widget.style.color = '#ffffff'; // Set text color to white for dark mode
     } else {
       container.dataset.theme = 'light';
       widget.dataset.theme = 'pure'; // Set widget theme to light
       widget.dataset.mooncolor = '#000000'; // Default moon color for light mode
       widget.dataset.cloudcolor = '#ffffff'; // Default cloud color for light mode
       widget.dataset.cloudfill = '#000000'; // Default cloud fill color for light mode
+      widget.style.color = '#000000'; // Set text color to black for light mode
     }
   }
 
