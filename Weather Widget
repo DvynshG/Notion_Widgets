@@ -1,1 +1,46 @@
-Hello world!
+<div class="weather-widget-container" data-theme="light">
+  <a class="weatherwidget-io" href="https://forecast7.com/en/24d6076d16/jhalawar/" data-label_1="JHALAWAR" data-label_2="WEATHER" data-font="Helvetica" data-icons="Climacons Animated" data-mode="Current" data-theme="pure" data-mooncolor="#000000" data-cloudcolor="#000000" data-cloudfill="#ffffff">JHALAWAR WEATHER</a>
+</div>
+
+<script>
+  function setWidgetTheme(isDarkMode) {
+    const container = document.querySelector('.weather-widget-container');
+    const widget = document.querySelector('.weatherwidget-io');
+
+    if (isDarkMode) {
+      container.dataset.theme = 'dark';
+      widget.dataset.theme = 'pure-dark'; // Set widget theme to dark
+      widget.dataset.mooncolor = '#ffffff'; // Adjust moon color for dark mode
+      widget.dataset.cloudcolor = '#ffffff'; // Adjust cloud color for dark mode
+      widget.dataset.cloudfill = '#000000'; // Adjust cloud fill color for dark mode
+    } else {
+      container.dataset.theme = 'light';
+      widget.dataset.theme = 'pure'; // Set widget theme to light
+      widget.dataset.mooncolor = '#000000'; // Default moon color for light mode
+      widget.dataset.cloudcolor = '#000000'; // Default cloud color for light mode
+      widget.dataset.cloudfill = '#ffffff'; // Default cloud fill color for light mode
+    }
+  }
+
+  // Function to check if Notion is in dark mode
+  function isDarkMode() {
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+
+  // Set initial theme based on Notion's dark mode status
+  setWidgetTheme(isDarkMode());
+
+  // Detect changes in Notion's dark mode and update widget theme accordingly
+  window.matchMedia('(prefers-color-scheme: dark)').addListener((e) => setWidgetTheme(e.matches));
+
+  // Load WeatherWidget.io script
+  !function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id = id;
+      js.src = 'https://weatherwidget.io/js/widget.min.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    }
+  }(document, 'script', 'weatherwidget-io-js');
+</script>
