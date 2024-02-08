@@ -14,8 +14,6 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
-            background-color: #fff;
-            color: #000;
             line-height: 1.55;
             font-size: 1rem;
             -webkit-font-smoothing: antialiased;
@@ -23,9 +21,19 @@
             margin: 0;
         }
 
-        /* Counter Widget Styles */
-        .counter-container {
+        /* Light Mode Styles */
+        .light-mode {
+            background-color: #fff;
             color: #000;
+        }
+
+        /* Dark Mode Styles */
+        .dark-mode {
+            background-color: #212121;
+            color: #fff;
+        }
+
+        .counter-container {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -45,12 +53,10 @@
         }
 
         .counter-number {
-            color: #37352f;
             margin: 0 10px;
         }
 
         .reset-button {
-            color: #37352f;
             background: none;
             border: none;
             cursor: pointer;
@@ -58,24 +64,22 @@
         }
     </style>
 </head>
-<body>
-    <div class="counter-container">
-        <div class="counter-content">
-            <button class="counter-button decrement">
-                <svg width="10" height="2" viewBox="0 0 10 2" fill="none" xmlns="http://www.w3.org/2000/svg" version="1.1">
-                    <path d="M1 1H9" stroke="#9E9E9E" stroke-linecap="round" stroke-linejoin="round"></path>
-                </svg>
-            </button>
-            <p class="counter-number">0</p>
-            <button class="counter-button increment">
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" version="1.1">
-                    <path d="M5 1V9" stroke="#9E9E9E" stroke-linecap="round" stroke-linejoin="round"></path>
-                    <path d="M1 5H9" stroke="#9E9E9E" stroke-linecap="round" stroke-linejoin="round"></path>
-                </svg>
-            </button>
-        </div>
-        <button class="reset-button">Reset</button>
+<body class="counter-container light-mode">
+    <div class="counter-content">
+        <button class="counter-button decrement">
+            <svg width="10" height="2" viewBox="0 0 10 2" fill="none" xmlns="http://www.w3.org/2000/svg" version="1.1">
+                <path d="M1 1H9" stroke="#9E9E9E" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+        </button>
+        <p class="counter-number">0</p>
+        <button class="counter-button increment">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" version="1.1">
+                <path d="M5 1V9" stroke="#9E9E9E" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M1 5H9" stroke="#9E9E9E" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+        </button>
     </div>
+    <button class="reset-button">Reset</button>
     <div class="Toastify"></div>
     <noscript>
         <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5HGC94H" height="0" width="0" style="display:none;visibility:hidden"></iframe>
@@ -83,16 +87,29 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            const body = document.body;
             const decrementBtn = document.querySelector('.decrement');
             const incrementBtn = document.querySelector('.increment');
             const resetBtn = document.querySelector('.reset-button');
             const counterNumber = document.querySelector('.counter-number');
 
             let count = 0;
+            let isDarkMode = true; // Change this according to application logic
 
             // Function to update counter display
             function updateCounter() {
                 counterNumber.textContent = count;
+            }
+
+            // Function to toggle dark mode
+            function toggleDarkMode() {
+                body.classList.toggle('dark-mode');
+                body.classList.toggle('light-mode');
+            }
+
+            // Apply initial mode based on isDarkMode
+            if (isDarkMode) {
+                toggleDarkMode();
             }
 
             // Event listeners for increment, decrement, and reset buttons
@@ -110,6 +127,10 @@
                 count = 0;
                 updateCounter();
             });
+
+            // Event listener for toggling dark mode
+            // This event listener can be triggered based on application logic
+            document.querySelector('.toggle-dark-mode').addEventListener('click', toggleDarkMode);
         });
     </script>
 </body>
