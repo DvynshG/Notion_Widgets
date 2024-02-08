@@ -1,0 +1,49 @@
+<a class="weatherwidget-io" href="https://forecast7.com/en/24d6076d16/jhalawar/">JHALAWAR WEATHER</a>
+<script>
+  // Function to update weather widget colors based on the Notion theme
+  function updateWeatherWidgetColors() {
+    var notionPage = document.querySelector('.notion-page-content');
+    var observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.attributeName === 'style') {
+          var bgColor = window.getComputedStyle(notionPage, null).getPropertyValue('background-color');
+          var isDarkMode = bgColor === 'rgb(51, 51, 51)'; // Change this according to your Notion theme's dark mode background color
+          var moonColor, cloudColor, cloudFill;
+
+          if (isDarkMode) {
+            moonColor = '#ffffff'; // White in dark mode
+            cloudColor = '#ffffff'; // White in dark mode
+            cloudFill = '#000000'; // Black in dark mode
+          } else {
+            moonColor = '#000000'; // Black in light mode
+            cloudColor = '#ffffff'; // Black in light mode
+            cloudFill = '#000000'; // White in light mode
+          }
+
+          // Update widget attributes with new colors
+          var weatherWidget = document.querySelector('.weatherwidget-io');
+          weatherWidget.setAttribute('data-mooncolor', moonColor);
+          weatherWidget.setAttribute('data-cloudcolor', cloudColor);
+          weatherWidget.setAttribute('data-cloudfill', cloudFill);
+        }
+      });
+    });
+
+    // Start observing changes in Notion page's styles
+    observer.observe(notionPage, { attributes: true });
+  }
+
+  // Call the function when the page loads
+  document.addEventListener('DOMContentLoaded', updateWeatherWidgetColors);
+</script>
+<script>
+  !function(d,s,id){
+    var js,fjs=d.getElementsByTagName(s)[0];
+    if(!d.getElementById(id)){
+      js=d.createElement(s);
+      js.id=id;
+      js.src='https://weatherwidget.io/js/widget.min.js';
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document,'script','weatherwidget-io-js');
+</script>
