@@ -1,354 +1,377 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width"/>
-        <meta charSet="utf-8"/>
-        <title>Indify – Counter Widget</title>
-        <meta name="title" content="Indify – Counter Widget"/>
-        <meta name="description" content="Level up your Notion docs with widgets. Fully customizable, and seamless to set up."/>
-        <meta name="robots" content="noindex"/>
-        <meta property="og:type" content="website"/>
-        <meta property="og:url" content="https://indify.co"/>
-        <meta property="og:title" content="Indify – Counter Widget"/>
-        <meta property="og:description" content="Level up your Notion docs with widgets. Fully customizable, and seamless to set up."/>
-        <meta property="og:image" content="https://indify.co/site-preview.png"/>
-        <meta name="twitter:card" content="summary_large_image"/>
-        <meta name="twitter:url" content="https://indify.co"/>
-        <meta name="twitter:title" content="Indify – Counter Widget"/>
-        <meta name="twitter:description" content="Level up your Notion docs with widgets. Fully customizable, and seamless to set up."/>
-        <meta name="twitter:image" content="https://indify.co/site-preview.png"/>
-        <meta name="google-signin-client_id" content="524845098815-ln2r633doalelenfke982p8ngrerisnj.apps.googleusercontent.com"/>
-        <meta name="google-site-verification" content="N5ve9V4RSK_6nND83499KX0pX8Z6ZnC3CAG06XUbNWo"/>
-        <link rel="shortcut icon" href="/logo.svg" type="image/x-icon"/>
-        <link rel="icon" href="/logo.svg" type="image/x-icon"/>
-        <script src="https://apis.google.com/js/platform.js" async="" defer=""></script>
-        <meta name="next-head-count" content="21"/>
-        <link rel="preload" href="/_next/static/css/da477341876571e89e6c.css" as="style"/>
-        <link rel="stylesheet" href="/_next/static/css/da477341876571e89e6c.css" data-n-g=""/>
-        <link rel="preload" href="/_next/static/css/af5c655b4af23efacb0f.css" as="style"/>
-        <link rel="stylesheet" href="/_next/static/css/af5c655b4af23efacb0f.css" data-n-p=""/>
-        <noscript data-n-css=""></noscript>
-        <script defer="" nomodule="" src="/_next/static/chunks/polyfills-b69b38e0e606287ba003.js"></script>
-        <script src="/_next/static/chunks/webpack-06c72dba84a8f40cbad7.js" defer=""></script>
-        <script src="/_next/static/chunks/framework-0bde067059066b5d3e1b.js" defer=""></script>
-        <script src="/_next/static/chunks/main-4f5a6b24ff6c42366de9.js" defer=""></script>
-        <script src="/_next/static/chunks/pages/_app-b74c03eda255cff1bfc1.js" defer=""></script>
-        <script src="/_next/static/chunks/pages/widgets/live/counter/%5BcounterPrefsId%5D-e811271893422c0f7998.js" defer=""></script>
-        <script src="/_next/static/ZeCOOEm_QauAC2vLiGspO/_buildManifest.js" defer=""></script>
-        <script src="/_next/static/ZeCOOEm_QauAC2vLiGspO/_ssgManifest.js" defer=""></script>
-        <style data-emotion="mantine "></style>
-        <style>
-            @media (prefers-color-scheme: dark) {
-                body {
-                    background-color: #1f1f1f;
-                    color: #fff;
-                }
-
-                .counter_counterContent__1EXnh .counter_counterBtn__2ruSB {
-                    background-color: #37352f;
-                }
-
-                .counter_clearButton__1Qblw {
-                    color: #fff;
-                }
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <meta charSet="utf-8"/>
+    <title>Indify – Counter Widget</title>
+    <meta name="title" content="Indify – Counter Widget"/>
+    <meta name="description" content="Level up your Notion docs with widgets. Fully customizable, and seamless to set up."/>
+    <meta name="robots" content="noindex"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://indify.co"/>
+    <meta property="og:title" content="Indify – Counter Widget"/>
+    <meta property="og:description" content="Level up your Notion docs with widgets. Fully customizable, and seamless to set up."/>
+    <meta property="og:image" content="https://indify.co/site-preview.png"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:url" content="https://indify.co"/>
+    <meta name="twitter:title" content="Indify – Counter Widget"/>
+    <meta name="twitter:description" content="Level up your Notion docs with widgets. Fully customizable, and seamless to set up."/>
+    <meta name="twitter:image" content="https://indify.co/site-preview.png"/>
+    <meta name="google-signin-client_id" content="524845098815-ln2r633doalelenfke982p8ngrerisnj.apps.googleusercontent.com"/>
+    <meta name="google-site-verification" content="N5ve9V4RSK_6nND83499KX0pX8Z6ZnC3CAG06XUbNWo"/>
+    <link rel="shortcut icon" href="/logo.svg" type="image/x-icon"/>
+    <link rel="icon" href="/logo.svg" type="image/x-icon"/>
+    <script src="https://apis.google.com/js/platform.js" async="" defer=""></script>
+    <meta name="next-head-count" content="21"/>
+    <link rel="preload" href="/_next/static/css/da477341876571e89e6c.css" as="style"/>
+    <link rel="stylesheet" href="/_next/static/css/da477341876571e89e6c.css" data-n-g=""/>
+    <link rel="preload" href="/_next/static/css/af5c655b4af23efacb0f.css" as="style"/>
+    <link rel="stylesheet" href="/_next/static/css/af5c655b4af23efacb0f.css" data-n-p=""/>
+    <noscript data-n-css=""></noscript>
+    <script defer="" nomodule="" src="/_next/static/chunks/polyfills-b69b38e0e606287ba003.js"></script>
+    <script src="/_next/static/chunks/webpack-06c72dba84a8f40cbad7.js" defer=""></script>
+    <script src="/_next/static/chunks/framework-0bde067059066b5d3e1b.js" defer=""></script>
+    <script src="/_next/static/chunks/main-4f5a6b24ff6c42366de9.js" defer=""></script>
+    <script src="/_next/static/chunks/pages/_app-b74c03eda255cff1bfc1.js" defer=""></script>
+    <script src="/_next/static/chunks/pages/widgets/live/counter/%5BcounterPrefsId%5D-e811271893422c0f7998.js" defer=""></script>
+    <script src="/_next/static/ZeCOOEm_QauAC2vLiGspO/_buildManifest.js" defer=""></script>
+    <script src="/_next/static/ZeCOOEm_QauAC2vLiGspO/_ssgManifest.js" defer=""></script>
+    <style data-emotion="mantine "></style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #1f1f1f;
+                color: #fff;
             }
-        </style>
-    </head>
-    <body>
-        <div id="__next">
-            <style data-emotion="css-global 1w883ez">
-                html {
-                    font-family: sans-serif;
-                    line-height: 1.15;
-                    -webkit-text-size-adjust: 100%;
-                    -moz-text-size-adjust: 100%;
-                    -ms-text-size-adjust: 100%;
-                    text-size-adjust: 100%;
-                }
 
-                body {
-                    margin: 0;
-                }
+            .counter_counterContent__1EXnh .counter_counterBtn__2ruSB {
+                background-color: #37352f;
+            }
 
-                article,aside,footer,header,nav,section,figcaption,figure,main {
-                    display: block;
-                }
+            .counter_clearButton__1Qblw {
+                color: #fff;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="__next">
+    <style data-emotion="css-global 1w883ez">
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%;
+            -moz-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+        }
 
-                h1 {
-                    font-size: 2em;
-                }
+        body {
+            margin: 0;
+        }
 
-                hr {
-                    box-sizing: content-box;
-                    height: 0;
-                    overflow: visible;
-                }
+        article,aside,footer,header,nav,section,figcaption,figure,main {
+            display: block;
+        }
 
-                pre {
-                    font-family: monospace,monospace;
-                    font-size: 1em;
-                }
+        h1 {
+            font-size: 2em;
+        }
 
-                a {
-                    background: transparent;
-                    text-decoration-skip: objects;
-                }
+        hr {
+            box-sizing: content-box;
+            height: 0;
+            overflow: visible;
+        }
 
-                a:active,a:hover {
-                    outline-width: 0;
-                }
+        pre {
+            font-family: monospace,monospace;
+            font-size: 1em;
+        }
 
-                abbr[title] {
-                    border-bottom: none;
-                    -webkit-text-decoration: underline;
-                    text-decoration: underline;
-                }
+        a {
+            background: transparent;
+            text-decoration-skip: objects;
+        }
 
-                b,strong {
-                    font-weight: bolder;
-                }
+        a:active,a:hover {
+            outline-width: 0;
+        }
 
-                code,kbp,samp {
-                    font-family: monospace,monospace;
-                    font-size: 1em;
-                }
+        abbr[title] {
+            border-bottom: none;
+            -webkit-text-decoration: underline;
+            text-decoration: underline;
+        }
 
-                dfn {
-                    font-style: italic;
-                }
+        b,strong {
+            font-weight: bolder;
+        }
 
-                mark {
-                    background-color: #ff0;
-                    color: #000;
-                }
+        code,kbp,samp {
+            font-family: monospace,monospace;
+            font-size: 1em;
+        }
 
-                small {
-                    font-size: 80%;
-                }
+        dfn {
+            font-style: italic;
+        }
 
-                sub,sup {
-                    font-size: 75%;
-                    line-height: 0;
-                    position: relative;
-                    vertical-align: baseline;
-                }
+        mark {
+            background-color: #ff0;
+            color: #000;
+        }
 
-                sup {
-                    top: -0.5em;
-                }
+        small {
+            font-size: 80%;
+        }
 
-                sub {
-                    bottom: -0.25em;
-                }
+        sub,sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline;
+        }
 
-                audio,video {
-                    display: inline-block;
-                }
+        sup {
+            top: -0.5em;
+        }
 
-                audio:not([controls]) {
-                    display: none;
-                    height: 0;
-                }
+        sub {
+            bottom: -0.25em;
+        }
 
-                img {
-                    border-style: none;
-                    vertical-align: middle;
-                }
+        audio,video {
+            display: inline-block;
+        }
 
-                svg:not(:root) {
-                    overflow: hidden;
-                }
+        audio:not([controls]) {
+            display: none;
+            height: 0;
+        }
 
-                button,input,optgroup,select,textarea {
-                    font-family: sans-serif;
-                    font-size: 100%;
-                    line-height: 1.15;
-                    margin: 0;
-                }
+        img {
+            border-style: none;
+            vertical-align: middle;
+        }
 
-                button,input {
-                    overflow: visible;
-                }
+        svg:not(:root) {
+            overflow: hidden;
+        }
 
-                button,select {
-                    text-transform: none;
-                }
+        button,input,optgroup,select,textarea {
+            font-family: sans-serif;
+            font-size: 100%;
+            line-height: 1.15;
+            margin: 0;
+        }
 
-                button,[type=reset],[type=submit] {
-                    -webkit-appearance: button;
-                }
+        button,input {
+            overflow: visible;
+        }
 
-                button::-moz-focus-inner,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner {
-                    border-style: none;
-                    padding: 0;
-                }
+        button,select {
+            text-transform: none;
+        }
 
-                button:-moz-focusring,[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring {
-                    outline: 0.0625rem dotted ButtonText;
-                }
+        button,[type=reset],[type=submit] {
+            -webkit-appearance: button;
+        }
 
-                legend {
-                    box-sizing: border-box;
-                    color: inherit;
-                    display: table;
-                    max-width: 100%;
-                    padding: 0;
-                    white-space: normal;
-                }
+        button::-moz-focus-inner,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner {
+            border-style: none;
+            padding: 0;
+        }
 
-                progress {
-                    display: inline-block;
-                    vertical-align: baseline;
-                }
+        button:-moz-focusring,[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring {
+            outline: 0.0625rem dotted ButtonText;
+        }
 
-                textarea {
-                    overflow: auto;
-                }
+        legend {
+            box-sizing: border-box;
+            color: inherit;
+            display: table;
+            max-width: 100%;
+            padding: 0;
+            white-space: normal;
+        }
 
-                [type=checkbox],[type=radio] {
-                    box-sizing: border-box;
-                    padding: 0;
-                }
+        progress {
+            display: inline-block;
+            vertical-align: baseline;
+        }
 
-                [type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button {
-                    height: auto;
-                }
+        textarea {
+            overflow: auto;
+        }
 
-                [type=search] {
-                    -webkit-appearance: none;
-                    -moz-appearance: none;
-                    -ms-appearance: none;
-                    appearance: none;
-                }
+        [type=checkbox],[type=radio] {
+            box-sizing: border-box;
+            padding: 0;
+        }
 
-                [type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration {
-                    -webkit-appearance: none;
-                    -moz-appearance: none;
-                    -ms-appearance: none;
-                    appearance: none;
-                }
+        [type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button {
+            height: auto;
+        }
 
-                ::-webkit-file-upload-button {
-                    -webkit-appearance: button;
-                    -moz-appearance: button;
-                    -ms-appearance: button;
-                    appearance: button;
-                    font: inherit;
-                }
+        [type=search] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -ms-appearance: none;
+            appearance: none;
+        }
 
-                details,menu {
-                    display: block;
-                }
+        [type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -ms-appearance: none;
+            appearance: none;
+        }
 
-                summary {
-                    display: -webkit-box;
-                    display: -webkit-list-item;
-                    display: -ms-list-itembox;
-                    display: list-item;
-                }
+        ::-webkit-file-upload-button {
+            -webkit-appearance: button;
+            -moz-appearance: button;
+            -ms-appearance: button;
+            appearance: button;
+            font: inherit;
+        }
 
-                canvas {
-                    display: inline-block;
-                }
+        details,menu {
+            display: block;
+        }
 
-                template {
-                    display: none;
-                }
-            </style>
-            <style data-emotion="css-global 1kvm0ug">
-                *,*::before,*::after {
-                    box-sizing: border-box;
-                }
+        summary {
+            display: -webkit-box;
+            display: -webkit-list-item;
+            display: -ms-list-itembox;
+            display: list-item;
+        }
 
-                html {
-                    -webkit-print-color-scheme: light;
-                    color-scheme: light;
-                }
+        canvas {
+            display: inline-block;
+        }
 
-                body {
-                    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
-                    background-color: #fff;
-                    color: #000;
-                    line-height: 1.55;
-                    font-size: 1rem;
-                    -webkit-font-smoothing: antialiased;
-                    -moz-osx-font-smoothing: grayscale;
-                }
-            </style>
-            <div class="counter_container__1k2dt" style="color:#000000;justify-content:center;margin-left:0">
-                <style></style>
-                <div class="counter_counterWrapper__eup_- counter_centered__MEdrl">
-                    <div class="counter_counterContent__1EXnh" style="z-index:99">
-                        <button class="counter_counterBtn__2ruSB">
-                            <svg class="counter_counterSign__1xr7i" width="10" height="2" viewBox="0 0 10 2" fill="none" xmlns="http://www.w3.org/2000/svg" version="1.1">
-                                <path class="counter_stroke__1dD_W" d="M1 1H9" stroke="#9E9E9E" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>
-                        </button>
-                        <p class="counter_counterNumber__IskxI" style="color:#37352f">0</p>
-                        <button class="counter_counterBtn__2ruSB">
-                            <svg class="counter_counterSign__1xr7i" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" version="1.1">
-                                <path class="counter_stroke__1dD_W" d="M5 1V9" stroke="#9E9E9E" stroke-linecap="round" stroke-linejoin="round"></path>
-                                <path class="counter_stroke__1dD_W" d="M1 5H9" stroke="#9E9E9E" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>
-                        </button>
-                    </div>
-                    <div style="margin-top:-9px">
-                        <button class="counter_clearButton__1Qblw" style="color:#37352f">reset</button>
-                    </div>
-                </div>
+        template {
+            display: none;
+        }
+    </style>
+    <div class="counter_container__1k2dt" style="color:#000000;justify-content:center;margin-left:0">
+        <style></style>
+        <div class="counter_counterWrapper__eup_- counter_centered__MEdrl">
+            <div class="counter_counterContent__1EXnh" style="z-index:99">
+                <button class="counter_counterBtn__2ruSB" onclick="decrement()">
+                    <svg class="counter_counterSign__1xr7i" width="10" height="2" viewBox="0 0 10 2" fill="none" xmlns="http://www.w3.org/2000/svg" version="1.1">
+                        <path class="counter_stroke__1dD_W" d="M1 1H9" stroke="#9E9E9E" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </button>
+                <p id="counterDisplay" class="counter_counterNumber__IskxI" style="color:#37352f">0</p>
+                <button class="counter_counterBtn__2ruSB" onclick="increment()">
+                    <svg class="counter_counterSign__1xr7i" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" version="1.1">
+                        <path class="counter_stroke__1dD_W" d="M5 1V9" stroke="#9E9E9E" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path class="counter_stroke__1dD_W" d="M1 5H9" stroke="#9E9E9E" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </button>
             </div>
-            <div class="Toastify"></div>
-            <noscript>
-                <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5HGC94H" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-            </noscript>
+            <div style="margin-top:-9px">
+                <button class="counter_clearButton__1Qblw" style="color:#37352f" onclick="reset()">reset</button>
+            </div>
         </div>
-        <script id="__NEXT_DATA__" type="application/json">
-            {
-                "props": {
-                    "pageProps": {
-                        "widgetPrefs": {
-                            "backgroundColor": "#ffffff",
-                            "setBackgroundColor": false,
-                            "centered": true,
-                            "darkModeHoverBar": true,
-                            "count": 0,
-                            "title": "Untitled",
-                            "icons": "P",
-                            "showCustomizeButton": true,
-                            "counterTitle": "",
-                            "allowDuplication": false,
-                            "uid": "dHOckMWM1degnrkpLVHmpStUoyi1",
-                            "dateCreated": "2024-02-08T19:28:23.978Z",
-                            "darkModeSetting": "do_nothing",
-                            "dashboardIds": [
-                            ],
-                            "lastViewed": "2024-02-08T19:28:25.791Z",
-                            "livePreviewDarkMode": false,
-                            "isPremium": false,
-                            "isEducator": false
-                        }
-                    },
-                    "urlInfo": {
-                        "protocol": "https:",
-                        "host": "indify.co",
-                        "origin": "https://indify.co"
-                    },
-                    "envVars": {
-                        "googleApiKey": "AIzaSyDTMMsTlg93L-xYciFeS4oeGFJ9ulhUQmM"
-                    }
-                },
-                "page": "/widgets/live/counter/[counterPrefsId]",
-                "query": {
-                    "counterPrefsId": "A0XMoKWdbxj5AEAHdslw"
-                },
-                "buildId": "ZeCOOEm_QauAC2vLiGspO",
-                "runtimeConfig": {
-                },
-                "isFallback": false,
-                "gip": true,
-                "appGip": true,
-                "scriptLoader": [
-                ]
-            }</script>
-    </body>
+    </div>
+    <div class="Toastify"></div>
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5HGC94H" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+</div>
+<script id="__NEXT_DATA__" type="application/json">
+    {
+        "props": {
+            "pageProps": {
+                "widgetPrefs": {
+                    "backgroundColor": "#ffffff",
+                    "setBackgroundColor": false,
+                    "centered": true,
+                    "darkModeHoverBar": true,
+                    "count": 0,
+                    "title": "Untitled",
+                    "icons": "P",
+                    "showCustomizeButton": true,
+                    "counterTitle": "",
+                    "allowDuplication": false,
+                    "uid": "dHOckMWM1degnrkpLVHmpStUoyi1",
+                    "dateCreated": "2024-02-08T19:28:23.978Z",
+                    "darkModeSetting": "do_nothing",
+                    "dashboardIds": [
+                    ],
+                    "lastViewed": "2024-02-08T19:28:25.791Z",
+                    "livePreviewDarkMode": false,
+                    "isPremium": false,
+                    "isEducator": false
+                }
+            },
+            "urlInfo": {
+                "protocol": "https:",
+                "host": "indify.co",
+                "origin": "https://indify.co"
+            },
+            "envVars": {
+                "googleApiKey": "AIzaSyDTMMsTlg93L-xYciFeS4oeGFJ9ulhUQmM"
+            }
+        },
+        "page": "/widgets/live/counter/[counterPrefsId]",
+        "query": {
+            "counterPrefsId": "A0XMoKWdbxj5AEAHdslw"
+        },
+        "buildId": "ZeCOOEm_QauAC2vLiGspO",
+        "runtimeConfig": {
+        },
+        "isFallback": false,
+        "gip": true,
+        "appGip": true,
+        "scriptLoader": [
+        ]
+    }</script>
+
+<script>
+    let counterValue = 0;
+    const counterDisplay = document.getElementById('counterDisplay');
+
+    function updateCounter() {
+        counterDisplay.innerText = counterValue;
+    }
+
+    function increment() {
+        counterValue++;
+        updateCounter();
+    }
+
+    function decrement() {
+        counterValue--;
+        updateCounter();
+    }
+
+    function reset() {
+        counterValue = 0;
+        updateCounter();
+    }
+
+    // Function to detect system color scheme changes
+    const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function toggleDarkMode(darkMode) {
+        if (darkMode) {
+            document.body.style.backgroundColor = '#1f1f1f';
+            document.body.style.color = '#fff';
+        } else {
+            document.body.style.backgroundColor = '#fff';
+            document.body.style.color = '#000';
+        }
+    }
+
+    toggleDarkMode(darkModeQuery.matches); // Initialize based on initial system setting
+
+    darkModeQuery.addEventListener('change', event => {
+        toggleDarkMode(event.matches);
+    });
+</script>
+</body>
 </html>
