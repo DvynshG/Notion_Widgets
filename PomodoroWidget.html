@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pomodoro Timer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
             font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -14,6 +13,7 @@
             height: 100vh;
             background-color: #ffffff;
             margin: 0;
+            position: relative;
         }
 
         .container {
@@ -59,11 +59,35 @@
             color: #101010;
             border: 2px solid #101010;
         }
+
+        /* Dark mode */
+        .dark-mode {
+            background-color: #101010;
+            color: #ffffff;
+        }
+
+        .dark-mode #controls button {
+            background-color: #ffffff;
+            color: #101010;
+        }
+
+        .dark-mode #startStopBtn {
+            background-color: #101010;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+        }
+
+        .theme-toggle-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: none;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Pomodoro Timer</h1>
+        <h1 id="h1">Pomodoro Timer</h1>
         <div id="timer">25:00</div>
         <div id="controls">
             <button id="startStopBtn">Start</button>
@@ -71,7 +95,7 @@
             <button id="toggleBtn">↔</button>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <button id="themeToggleBtn" class="theme-toggle-btn">Toggle Theme</button>
     <script>
         let timer;
         let sessionLength = 25 * 60; // Initial session length: 25 minutes
@@ -79,6 +103,23 @@
         let timeLeft = sessionLength;
         let isRunning = false;
         let isSession = true;
+        let isDarkMode = false;
+
+        function toggleTheme() {
+            isDarkMode = !isDarkMode;
+            const container = document.querySelector('.container');
+            container.classList.toggle('dark-mode');
+            if (isDarkMode) {
+                document.body.style.backgroundColor = '#101010';
+                document.getElementById('h1').style.color = '#ffffff';
+                document.getElementById('timer').style.color = '#ffffff';
+            } else {
+                document.body.style.backgroundColor = '#ffffff';
+                document.getElementById('h1').style.color = '#101010';
+                document.getElementById('timer').style.color = '#101010';
+            }
+            updateStartStopBtnColor();
+        }
 
         function toggleTimer() {
             clearInterval(timer);
@@ -86,9 +127,7 @@
             timeLeft = isSession ? breakLength : sessionLength;
             isSession = !isSession;
             document.getElementById('startStopBtn').textContent = "Start";
-            document.getElementById('startStopBtn').style.backgroundColor = "#101010";
-            document.getElementById('startStopBtn').style.borderColor = "#101010";
-            document.getElementById('startStopBtn').style.color = "#fff";
+            updateStartStopBtnColor();
             updateTimerDisplay();
         }
 
@@ -97,17 +136,12 @@
                 isRunning = true;
                 timer = setInterval(updateTimer, 1000);
                 document.getElementById('startStopBtn').textContent = "Stop";
-                document.getElementById('startStopBtn').style.backgroundColor = "#fff";
-                document.getElementById('startStopBtn').style.borderColor = "#101010";
-                document.getElementById('startStopBtn').style.color = "#101010";
             } else {
                 clearInterval(timer);
                 isRunning = false;
                 document.getElementById('startStopBtn').textContent = "Start";
-                document.getElementById('startStopBtn').style.backgroundColor = "#101010";
-                document.getElementById('startStopBtn').style.borderColor = "#101010";
-                document.getElementById('startStopBtn').style.color = "#fff";
             }
+            updateStartStopBtnColor();
         }
 
         function resetTimer() {
@@ -116,9 +150,7 @@
             timeLeft = sessionLength;
             isSession = true;
             document.getElementById('startStopBtn').textContent = "Start";
-            document.getElementById('startStopBtn').style.backgroundColor = "#101010";
-            document.getElementById('startStopBtn').style.borderColor = "#101010";
-            document.getElementById('startStopBtn').style.color = "#fff";
+            updateStartStopBtnColor();
             updateTimerDisplay();
         }
 
@@ -133,8 +165,8 @@
                 } else {
                     timeLeft = sessionLength; // Start session
                 }
-                updateTimerDisplay();
                 toggleStartStopBtn();
+                updateTimerDisplay();
             }
         }
 
@@ -148,9 +180,33 @@
             return time < 10 ? `0${time}` : time;
         }
 
+        function updateStartStopBtnColor() {
+            const startStopBtn = document.getElementById('startStopBtn');
+            if (isRunning) {
+                startStopBtn.style.backgroundColor = isDarkMode ? "#101010" : "#fff";
+                startStopBtn.style.borderColor = isDarkMode ? "#fff" : "#101010";
+                startStopBtn.style.color = isDarkMode ? "#fff" : "#101010";
+            } else {
+                startStopBtn.style.backgroundColor = isDarkMode ? "#fff" : "#101010";
+                startStopBtn.style.borderColor = isDarkMode ? "#101010" : "#fff";
+                startStopBtn.style.color = isDarkMode ? "#101010" : "#fff";
+            }
+        }
+
+        // Show theme toggle button on mouse enter
+        document.body.addEventListener('mouseenter', function() {
+            document.getElementById('themeToggleBtn').style.display = 'block';
+        });
+
+        // Hide theme toggle button on mouse leave
+        document.body.addEventListener('mouseleave', function() {
+            document.getElementById('themeToggleBtn').style.display = 'none';
+        });
+
         document.getElementById('startStopBtn').addEventListener('click', toggleStartStopBtn);
         document.getElementById('resetBtn').addEventListener('click', resetTimer);
         document.getElementById('toggleBtn').addEventListener('click', toggleTimer);
+        document.getElementById('themeToggleBtn').addEventListener('click', toggleTheme);
 
         // Initial display
         updateTimerDisplay();
