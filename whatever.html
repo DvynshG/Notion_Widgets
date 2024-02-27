@@ -108,6 +108,7 @@
             } else {
                 document.body.style.backgroundColor = '#ffffff';
             }
+            updateStartStopBtnColor();
         }
 
         function toggleTimer() {
@@ -116,9 +117,7 @@
             timeLeft = isSession ? breakLength : sessionLength;
             isSession = !isSession;
             document.getElementById('startStopBtn').textContent = "Start";
-            document.getElementById('startStopBtn').style.backgroundColor = isDarkMode ? "#fff" : "#101010";
-            document.getElementById('startStopBtn').style.borderColor = isDarkMode ? "#101010" : "#fff";
-            document.getElementById('startStopBtn').style.color = isDarkMode ? "#101010" : "#fff";
+            updateStartStopBtnColor();
             updateTimerDisplay();
         }
 
@@ -127,17 +126,12 @@
                 isRunning = true;
                 timer = setInterval(updateTimer, 1000);
                 document.getElementById('startStopBtn').textContent = "Stop";
-                document.getElementById('startStopBtn').style.backgroundColor = isDarkMode ? "#101010" : "#fff";
-                document.getElementById('startStopBtn').style.borderColor = isDarkMode ? "#fff" : "#101010";
-                document.getElementById('startStopBtn').style.color = isDarkMode ? "#fff" : "#101010";
             } else {
                 clearInterval(timer);
                 isRunning = false;
                 document.getElementById('startStopBtn').textContent = "Start";
-                document.getElementById('startStopBtn').style.backgroundColor = isDarkMode ? "#fff" : "#101010";
-                document.getElementById('startStopBtn').style.borderColor = isDarkMode ? "#101010" : "#fff";
-                document.getElementById('startStopBtn').style.color = isDarkMode ? "#101010" : "#fff";
             }
+            updateStartStopBtnColor();
         }
 
         function resetTimer() {
@@ -146,9 +140,7 @@
             timeLeft = sessionLength;
             isSession = true;
             document.getElementById('startStopBtn').textContent = "Start";
-            document.getElementById('startStopBtn').style.backgroundColor = isDarkMode ? "#fff" : "#101010";
-            document.getElementById('startStopBtn').style.borderColor = isDarkMode ? "#101010" : "#fff";
-            document.getElementById('startStopBtn').style.color = isDarkMode ? "#101010" : "#fff";
+            updateStartStopBtnColor();
             updateTimerDisplay();
         }
 
@@ -163,8 +155,8 @@
                 } else {
                     timeLeft = sessionLength; // Start session
                 }
-                updateTimerDisplay();
                 toggleStartStopBtn();
+                updateTimerDisplay();
             }
         }
 
@@ -176,6 +168,19 @@
 
         function formatTime(time) {
             return time < 10 ? `0${time}` : time;
+        }
+
+        function updateStartStopBtnColor() {
+            const startStopBtn = document.getElementById('startStopBtn');
+            if (isRunning) {
+                startStopBtn.style.backgroundColor = isDarkMode ? "#101010" : "#fff";
+                startStopBtn.style.borderColor = isDarkMode ? "#fff" : "#101010";
+                startStopBtn.style.color = isDarkMode ? "#fff" : "#101010";
+            } else {
+                startStopBtn.style.backgroundColor = isDarkMode ? "#fff" : "#101010";
+                startStopBtn.style.borderColor = isDarkMode ? "#101010" : "#fff";
+                startStopBtn.style.color = isDarkMode ? "#101010" : "#fff";
+            }
         }
 
         document.getElementById('startStopBtn').addEventListener('click', toggleStartStopBtn);
