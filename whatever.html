@@ -12,30 +12,30 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            background-color: #ffffff;
             margin: 0;
-            background-color: #fff; /* Default light mode background */
-            color: #101010; /* Default light mode text color */
         }
 
         .container {
             text-align: center;
-            background-color: inherit;
+            background-color: #fff;
             border-radius: 4px;
             box-shadow: 0 0px 0px rgba(0,0,0,0);
             padding: 5vw;
             width: 90%;
             max-width: 100%;
-            transition: background-color 0.3s, color 0.3s;
         }
 
         h1 {
             font-size: 8vw;
             margin-bottom: 5vw;
+            color: #101010;
         }
 
         #timer {
             font-size: 16vw;
             margin-bottom: 8vw;
+            color: #101010;
         }
 
         #controls button {
@@ -43,22 +43,38 @@
             padding: 3vw 6vw;
             margin: 0 2vw;
             cursor: pointer;
+            background-color: #101010;
+            color: #fff;
             border-radius: 2vw;
-            transition: background-color 0.3s, color 0.3s;
+            transition: background-color 0.3s;
         }
 
         #controls button:hover {
-            background-color: rgba(0, 0, 0, 0.1);
+            background-color: #404040;
         }
 
         /* Stop/Resume button style */
         #startStopBtn {
-            background-color: transparent;
-            border: 2px solid;
+            background-color: #fff;
+            color: #101010;
+            border: 2px solid #101010;
         }
 
-        #startStopBtn:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+        /* Dark mode */
+        .dark-mode {
+            background-color: #101010;
+            color: #ffffff;
+        }
+
+        .dark-mode #controls button {
+            background-color: #ffffff;
+            color: #101010;
+        }
+
+        .dark-mode #startStopBtn {
+            background-color: #101010;
+            color: #ffffff;
+            border: 2px solid #ffffff;
         }
     </style>
 </head>
@@ -69,37 +85,41 @@
         <div id="controls">
             <button id="startStopBtn">Start</button>
             <button id="resetBtn">Reset</button>
-            <button id="toggleBtn">Toggle Mode</button>
+            <button id="toggleBtn">↔</button>
         </div>
+        <button id="themeToggleBtn">Toggle Theme</button>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
     <script>
-        let darkMode = false;
         let timer;
         let sessionLength = 25 * 60; // Initial session length: 25 minutes
         let breakLength = 5 * 60; // Break length: 5 minutes
         let timeLeft = sessionLength;
         let isRunning = false;
         let isSession = true;
+        let isDarkMode = false;
 
-        function toggleDarkMode() {
-            const elementsToChange = document.querySelectorAll('body, .container, h1, #timer, #controls button');
-            elementsToChange.forEach(element => {
-                if (darkMode) {
-                    element.style.color = '#101010';
-                    element.style.backgroundColor = '#fff';
-                    if (element.id !== 'toggleBtn') {
-                        element.style.borderColor = '#101010';
-                    }
-                } else {
-                    element.style.color = '#fff';
-                    element.style.backgroundColor = '#101010';
-                    if (element.id !== 'toggleBtn') {
-                        element.style.borderColor = '#fff';
-                    }
-                }
-            });
-            darkMode = !darkMode;
+        function toggleTheme() {
+            isDarkMode = !isDarkMode;
+            const container = document.querySelector('.container');
+            container.classList.toggle('dark-mode');
+            if (isDarkMode) {
+                document.body.style.backgroundColor = '#101010';
+            } else {
+                document.body.style.backgroundColor = '#ffffff';
+            }
+        }
+
+        function toggleTimer() {
+            clearInterval(timer);
+            isRunning = false;
+            timeLeft = isSession ? breakLength : sessionLength;
+            isSession = !isSession;
+            document.getElementById('startStopBtn').textContent = "Start";
+            document.getElementById('startStopBtn').style.backgroundColor = isDarkMode ? "#fff" : "#101010";
+            document.getElementById('startStopBtn').style.borderColor = isDarkMode ? "#101010" : "#fff";
+            document.getElementById('startStopBtn').style.color = isDarkMode ? "#101010" : "#fff";
+            updateTimerDisplay();
         }
 
         function toggleStartStopBtn() {
@@ -107,10 +127,16 @@
                 isRunning = true;
                 timer = setInterval(updateTimer, 1000);
                 document.getElementById('startStopBtn').textContent = "Stop";
+                document.getElementById('startStopBtn').style.backgroundColor = isDarkMode ? "#101010" : "#fff";
+                document.getElementById('startStopBtn').style.borderColor = isDarkMode ? "#fff" : "#101010";
+                document.getElementById('startStopBtn').style.color = isDarkMode ? "#fff" : "#101010";
             } else {
                 clearInterval(timer);
                 isRunning = false;
                 document.getElementById('startStopBtn').textContent = "Start";
+                document.getElementById('startStopBtn').style.backgroundColor = isDarkMode ? "#fff" : "#101010";
+                document.getElementById('startStopBtn').style.borderColor = isDarkMode ? "#101010" : "#fff";
+                document.getElementById('startStopBtn').style.color = isDarkMode ? "#101010" : "#fff";
             }
         }
 
@@ -120,6 +146,9 @@
             timeLeft = sessionLength;
             isSession = true;
             document.getElementById('startStopBtn').textContent = "Start";
+            document.getElementById('startStopBtn').style.backgroundColor = isDarkMode ? "#fff" : "#101010";
+            document.getElementById('startStopBtn').style.borderColor = isDarkMode ? "#101010" : "#fff";
+            document.getElementById('startStopBtn').style.color = isDarkMode ? "#101010" : "#fff";
             updateTimerDisplay();
         }
 
@@ -134,7 +163,6 @@
                 } else {
                     timeLeft = sessionLength; // Start session
                 }
-                isSession = !isSession;
                 updateTimerDisplay();
                 toggleStartStopBtn();
             }
@@ -152,7 +180,8 @@
 
         document.getElementById('startStopBtn').addEventListener('click', toggleStartStopBtn);
         document.getElementById('resetBtn').addEventListener('click', resetTimer);
-        document.getElementById('toggleBtn').addEventListener('click', toggleDarkMode);
+        document.getElementById('toggleBtn').addEventListener('click', toggleTimer);
+        document.getElementById('themeToggleBtn').addEventListener('click', toggleTheme);
 
         // Initial display
         updateTimerDisplay();
