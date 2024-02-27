@@ -43,13 +43,13 @@
             cursor: pointer;
             background-color: #101010;
             color: #fff;
-            border: none;
+            border: 4px;
             border-radius: 4px;
             transition: background-color 0.3s;
         }
 
         #controls button:hover {
-            background-color: #0056b3;
+            background-color: #404040;
         }
 
         .fa-icon {
@@ -94,8 +94,8 @@
                 clearInterval(timer);
                 isRunning = false;
                 document.getElementById('startStopBtn').textContent = "Start";
-                document.getElementById('startStopBtn').style.backgroundColor = "#007bff";
-                document.getElementById('startStopBtn').style.borderColor = "#007bff";
+                document.getElementById('startStopBtn').style.backgroundColor = "#101010";
+                document.getElementById('startStopBtn').style.borderColor = "#101010";
                 document.getElementById('startStopBtn').style.color = "#fff";
             }
         }
@@ -105,8 +105,8 @@
             isRunning = false;
             timeLeft = sessionLength;
             document.getElementById('startStopBtn').textContent = "Start";
-            document.getElementById('startStopBtn').style.backgroundColor = "#007bff";
-            document.getElementById('startStopBtn').style.borderColor = "#007bff";
+            document.getElementById('startStopBtn').style.backgroundColor = "#101010";
+            document.getElementById('startStopBtn').style.borderColor = "#101010";
             document.getElementById('startStopBtn').style.color = "#fff";
             updateTimerDisplay();
         }
