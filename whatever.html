@@ -1,0 +1,53 @@
+let timer;
+let timeLeft = 1500; // Initial time: 25 minutes
+let isRunning = false;
+
+function startTimer() {
+    if (!isRunning) {
+        isRunning = true;
+        timer = setInterval(updateTimer, 1000);
+    }
+}
+
+function stopTimer() {
+    clearInterval(timer);
+    isRunning = false;
+}
+
+function resetTimer() {
+    stopTimer();
+    timeLeft = 1500; // Reset to 25 minutes
+    updateTimerDisplay();
+}
+
+function updateTimer() {
+    if (timeLeft > 0) {
+        timeLeft--;
+        updateTimerDisplay();
+    } else {
+        clearInterval(timer);
+        if (timeLeft === 0) {
+            timeLeft = 300; // Break time: 5 minutes
+        } else {
+            timeLeft = 1500; // Session time: 25 minutes
+        }
+        updateTimerDisplay();
+    }
+}
+
+function updateTimerDisplay() {
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
+    document.getElementById('timer').textContent = `${formatTime(minutes)}:${formatTime(seconds)}`;
+}
+
+function formatTime(time) {
+    return time < 10 ? `0${time}` : time;
+}
+
+document.getElementById('startBtn').addEventListener('click', startTimer);
+document.getElementById('stopBtn').addEventListener('click', stopTimer);
+document.getElementById('resetBtn').addEventListener('click', resetTimer);
+
+// Initial display
+updateTimerDisplay();
