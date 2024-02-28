@@ -83,7 +83,7 @@
             position: absolute;
             top: 9px;
             left: 10px;
-            display: block;
+            display: none; /* Initially hide the burger menu button */
             padding: none;
             border: none;
             font-size: 28px;
@@ -169,6 +169,27 @@
 
         .checkbox:checked + .switch {
             background-color: #101010;
+        }
+
+        /* CSS for responsive styles */
+        /* Sidebar */
+        @media screen and (max-width: 768px) {
+            .sidebar {
+                width: 200px; /* Adjust width for smaller screens */
+            }
+        }
+
+        /* Burger Menu Button */
+        @media screen and (min-width: 769px) {
+            .burger-menu-btn {
+                display: none; /* Hide the burger menu button for larger screens */
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .burger-menu-btn {
+                display: block; /* Display the burger menu button for smaller screens */
+            }
         }
     </style>
 </head>
