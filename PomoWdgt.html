@@ -110,8 +110,7 @@
         
         #closeSidebarBtn {
             position: absolute;
-            bottom: 10px;
-            left: 10px;
+            right: 10px;
             background-color: transparent;
             color: #666; /* Change color as needed */
             font-size: 24px;
@@ -192,8 +191,10 @@
 <body>
     <button id="burgerMenuBtn" class="burger-menu-btn">☰</button>
     <div id="sidebar" class="sidebar">
-        <button id="closeSidebarBtn" class="close-sidebar-btn">✖</button> <!-- Exit button -->
-        <h2>Settings</h2>
+        <div id="header" class="head-er">
+            <h2>Settings</h2>
+            <button id="closeSidebarBtn" class="close-sidebar-btn">✖</button> <!-- Exit button -->
+        </div>
         <hr>
         <label for="toggle" class="toggle-label">Dark Mode</label>
         <div class="toggle-switch">
