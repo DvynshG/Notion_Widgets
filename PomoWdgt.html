@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pomodoro Widget</title>
     <style>
-        /* CSS styles */
+        /* CSS styles here */
+
         body {
             font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             display: flex;
@@ -87,52 +88,55 @@
             display: block;
             padding: none;
             border: none;
-            font-size: 5vw; /* Adjust font size relative to viewport width */
+            font-size: 4vw; /* Responsive font size */
             cursor: pointer;
-            z-index: 2;
+            z-index: 2; /* Increase the z-index to ensure it's above the sidebar */
         }
 
         .sidebar {
             background-color: #f1f1f1;
             height: 100%;
-            width: 25%; /* Adjust width relative to viewport width */
+            width: 250px;
+            min-width: 150px; /* Set minimum width to prevent scaling down too much */
             position: fixed;
-            left: -25%; /* Adjust initial position relative to viewport width */
+            left: -250px;
             top: 0;
-            z-index: 3;
+            z-index: 3; /* Increase the z-index to ensure it's above the burger menu button */
             overflow-x: hidden;
             padding-top: 20px;
             transition: 0.5s ease;
         }
 
         .sidebar.expanded {
-            box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.30); 
+            box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.30); /* Apply shadow only when expanded */
         }
 
         .sidebar h2 {
-            font-size: 36px;
-            padding-left: 24px;
+            font-size: 4vw; /* Responsive font size */
+            padding-left: 3vw; /* Responsive padding */
             text-align: left; /* Center align the header */
             margin-bottom: 20px; /* Add some bottom margin for separation */
             color: #101010; /* Adjust color */
         }
 
         .sidebar hr {
-            margin-top: 40px auto; /* Add more space around the horizontal rule */
+            margin-top: 3vw; /* Responsive margin */
+            margin-bottom: 3vw; /* Responsive margin */
             width: 80%;
             border: 1px solid #ddd;
         }
 
         .toggle-label {
             font-weight: 400;
-            display: inline-flex; /* Display label and toggle switch inline */
-            align-items: center; /* Align items vertically */
+            padding-left: 3vw; /* Responsive padding */
+            display: inline-block; /* Display the label and toggle switch in one line */
+            margin-right: 2vw; /* Responsive margin */
             color: #101010; /* Adjust color as needed */
         }
 
         .toggle-switch {
-            padding-left: 10px; /* Adjust spacing between label and switch */
-            display: inline-block;
+            padding-left: 3vw; /* Responsive padding */
+            display: inline-block; /* Display the toggle switch inline with the label */
             vertical-align: middle; /* Align vertically with the label */
         }
 
@@ -144,52 +148,31 @@
         .switch {
             position: relative;
             display: inline-block;
-            width: 38px;
-            height: 19px;
+            width: 3vw; /* Responsive width */
+            height: 1.5vw; /* Responsive height */
             background-color: #ccc;
-            border-radius: 19px;
+            border-radius: 0.75vw; /* Responsive border radius */
             cursor: pointer;
         }
 
         .switch::before {
             position: absolute;
             content: "";
-            height: 13px;
-            width: 13px;
-            left: 3px;
-            bottom: 3px;
+            height: 0.975vw; /* Responsive height */
+            width: 0.975vw; /* Responsive width */
+            left: 0.225vw; /* Responsive position */
+            bottom: 0.225vw; /* Responsive position */
             background-color: white;
             border-radius: 50%;
             transition: transform 0.3s ease;
         }
 
         .checkbox:checked + .switch::before {
-            transform: translateX(19px);
+            transform: translateX(1.525vw); /* Responsive translation */
         }
 
         .checkbox:checked + .switch {
             background-color: #101010;
-        }
-
-        /* CSS for responsive styles */
-        /* Sidebar */
-        @media screen and (max-width: 768px) {
-            .sidebar {
-                width: 200px; /* Adjust width for smaller screens */
-            }
-        }
-
-        /* Burger Menu Button */
-        @media screen and (min-width: 769px) {
-            .burger-menu-btn {
-                display: none; /* Hide the burger menu button for larger screens */
-            }
-        }
-
-        @media screen and (max-width: 768px) {
-            .burger-menu-btn {
-                display: block; /* Display the burger menu button for smaller screens */
-            }
         }
     </style>
 </head>
