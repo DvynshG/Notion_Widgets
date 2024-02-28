@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pomodoro Widget</title>
     <style>
-        /* CSS styles here */
-
         body {
             font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             display: flex;
@@ -88,7 +86,7 @@
             display: block;
             padding: none;
             border: none;
-            font-size: 4vw; /* Responsive font size */
+            font-size: 28px;
             cursor: pointer;
             z-index: 2; /* Increase the z-index to ensure it's above the sidebar */
         }
@@ -97,7 +95,6 @@
             background-color: #f1f1f1;
             height: 100%;
             width: 250px;
-            min-width: 150px; /* Set minimum width to prevent scaling down too much */
             position: fixed;
             left: -250px;
             top: 0;
@@ -112,30 +109,29 @@
         }
 
         .sidebar h2 {
-            font-size: 4vw; /* Responsive font size */
-            padding-left: 3vw; /* Responsive padding */
+            font-size: 36px;
+            padding-left: 24px;
             text-align: left; /* Center align the header */
             margin-bottom: 20px; /* Add some bottom margin for separation */
             color: #101010; /* Adjust color */
         }
 
         .sidebar hr {
-            margin-top: 3vw; /* Responsive margin */
-            margin-bottom: 3vw; /* Responsive margin */
+            margin-top: 40px auto; /* Add more space around the horizontal rule */
             width: 80%;
             border: 1px solid #ddd;
         }
 
         .toggle-label {
             font-weight: 400;
-            padding-left: 3vw; /* Responsive padding */
+            padding-left: 24px;
             display: inline-block; /* Display the label and toggle switch in one line */
-            margin-right: 2vw; /* Responsive margin */
+            margin-right: 10px; /* Add some right margin for spacing */
             color: #101010; /* Adjust color as needed */
         }
 
         .toggle-switch {
-            padding-left: 3vw; /* Responsive padding */
+            padding-left: 70px;
             display: inline-block; /* Display the toggle switch inline with the label */
             vertical-align: middle; /* Align vertically with the label */
         }
@@ -148,27 +144,27 @@
         .switch {
             position: relative;
             display: inline-block;
-            width: 3vw; /* Responsive width */
-            height: 1.5vw; /* Responsive height */
+            width: 38px;
+            height: 19px;
             background-color: #ccc;
-            border-radius: 0.75vw; /* Responsive border radius */
+            border-radius: 19px;
             cursor: pointer;
         }
 
         .switch::before {
             position: absolute;
             content: "";
-            height: 0.975vw; /* Responsive height */
-            width: 0.975vw; /* Responsive width */
-            left: 0.225vw; /* Responsive position */
-            bottom: 0.225vw; /* Responsive position */
+            height: 13px;
+            width: 13px;
+            left: 3px;
+            bottom: 3px;
             background-color: white;
             border-radius: 50%;
             transition: transform 0.3s ease;
         }
 
         .checkbox:checked + .switch::before {
-            transform: translateX(1.525vw); /* Responsive translation */
+            transform: translateX(19px);
         }
 
         .checkbox:checked + .switch {
@@ -294,7 +290,7 @@
             const sidebar = document.getElementById('sidebar');
             const timerControls = document.querySelectorAll('#startStopBtn, #resetBtn, #toggleBtn');
             if (sidebar.style.left === '0px') {
-                sidebar.style.left = '-25%';
+                sidebar.style.left = '-250px';
                 sidebar.classList.remove('expanded');
                 timerControls.forEach(control => control.disabled = false);
             } else {
@@ -308,7 +304,7 @@
             const sidebar = document.getElementById('sidebar');
             const timerControls = document.querySelectorAll('#startStopBtn, #resetBtn, #toggleBtn');
             if (sidebar.style.left === '0px') {
-                sidebar.style.left = '-25%';
+                sidebar.style.left = '-250px';
                 sidebar.classList.remove('expanded');
                 timerControls.forEach(control => control.disabled = false);
             } else {
@@ -318,31 +314,26 @@
             }
         }
 
-        // Close sidebar when clicking outside of it
         document.body.addEventListener('click', function(event) {
             const sidebar = document.getElementById('sidebar');
             const burgerMenuBtn = document.getElementById('burgerMenuBtn');
             const clickedElement = event.target;
-
             if (clickedElement !== sidebar && !sidebar.contains(clickedElement) && clickedElement !== burgerMenuBtn && sidebar.style.left === '0px') {
-                sidebar.style.left = '-25%';
+                sidebar.style.left = '-250px';
                 sidebar.classList.remove('expanded');
                 const timerControls = document.querySelectorAll('#startStopBtn, #resetBtn, #toggleBtn');
                 timerControls.forEach(control => control.disabled = false);
             }
         });
 
-        // Function to show burger menu button when mouse enters the screen
         function showBurgerMenuBtn() {
             document.getElementById('burgerMenuBtn').style.display = 'block';
         }
 
-        // Function to hide burger menu button when mouse leaves the screen
         function hideBurgerMenuBtn() {
             document.getElementById('burgerMenuBtn').style.display = 'none';
         }
 
-        // Add event listeners for mouse enter and leave
         document.body.addEventListener('mouseenter', showBurgerMenuBtn);
         document.body.addEventListener('mouseleave', hideBurgerMenuBtn);
 
@@ -352,7 +343,6 @@
         document.getElementById('toggle').addEventListener('change', toggleTheme);
         document.getElementById('burgerMenuBtn').addEventListener('click', toggleBurgerMenu);
 
-        // Initial display
         updateTimerDisplay();
     </script>
 </body>
