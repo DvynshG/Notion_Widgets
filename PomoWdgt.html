@@ -18,24 +18,21 @@
 
         .container {
             text-align: center;
-            background-color: #fff;
-            border-radius: 4px;
-            box-shadow: 0 0px 0px rgba(0,0,0,0);
-            padding: 5vw;
-            width: 90%;
+            background-color: transparent;
+            width: 100%;
             max-width: 100%;
         }
 
         h1 {
             font-size: 8vw;
             margin-bottom: 5vw;
-            color: #101010;
+            color: #3735f2;
         }
 
         #timer {
             font-size: 16vw;
             margin-bottom: 8vw;
-            color: #101010;
+            color: #3735f2;
         }
 
         #controls button {
@@ -43,7 +40,7 @@
             padding: 3vw 6vw;
             margin: 0 2vw;
             cursor: pointer;
-            background-color: #101010;
+            background-color: #3735f2;
             color: #fff;
             border-radius: 2vw;
             transition: background-color 0.3s;
@@ -56,30 +53,30 @@
         /* Stop/Resume button style */
         #startStopBtn {
             background-color: #fff;
-            color: #101010;
-            border: 2px solid #101010;
+            color: #3735f2;
+            border: 2px solid #3735f2;
         }
 
         /* Dark mode */
         .dark-mode {
-            background-color: #101010;
+            background-color: #3735f2;
             color: #ffffff;
         }
 
         .dark-mode #controls button {
             background-color: #ffffff;
-            color: #101010;
+            color: #3735f2;
         }
 
         .dark-mode #startStopBtn {
-            background-color: #101010;
+            background-color: #3735f2;
             color: #ffffff;
             border: 2px solid #ffffff;
         }
 
         .burger-menu-btn {
             background-color: #fff;
-            color: #101010;
+            color: #3735f2;
             position: absolute;
             top: 9px;
             left: 10px;
@@ -113,7 +110,7 @@
             position: absolute;
             right: 10px;
             background-color: transparent;
-            color: #101010; /* Change color as needed */
+            color: #3735f2; /* Change color as needed */
             font-size: 24px;
             border: none;
             cursor: pointer;
@@ -131,7 +128,7 @@
             display: inline-block;
             text-align: left; /* Center align the header */
             margin-bottom: 10px; /* Add some bottom margin for separation */
-            color: #101010; /* Adjust color */
+            color: #3735f2; /* Adjust color */
         }
 
         .sidebar hr {
@@ -145,7 +142,7 @@
             padding-left: 24px;
             display: inline-block; /* Display the label and toggle switch in one line */
             margin-right: 10px; /* Add some right margin for spacing */
-            color: #101010; /* Adjust color as needed */
+            color: #3735f2; /* Adjust color as needed */
         }
 
         .toggle-switch {
@@ -186,7 +183,7 @@
         }
 
         .checkbox:checked + .switch {
-            background-color: #101010;
+            background-color: #3735f2;
         }
     </style>
 </head>
@@ -227,11 +224,11 @@
             isDarkMode = !isDarkMode;
             const container = document.querySelector('.container');
             container.classList.toggle('dark-mode');
-            document.body.style.backgroundColor = isDarkMode ? '#101010' : '#ffffff';
-            document.getElementById('h1').style.color = isDarkMode ? '#ffffff' : '#101010';
-            document.getElementById('timer').style.color = isDarkMode ? '#ffffff' : '#101010';
-            document.getElementById('burgerMenuBtn').style.backgroundColor = isDarkMode ? '#101010' : '#fff';
-            document.getElementById('burgerMenuBtn').style.color = isDarkMode ? '#fff' : '#101010';
+            document.body.style.backgroundColor = isDarkMode ? '#3735f2' : '#ffffff';
+            document.getElementById('h1').style.color = isDarkMode ? '#ffffff' : '#3735f2';
+            document.getElementById('timer').style.color = isDarkMode ? '#ffffff' : '#3735f2';
+            document.getElementById('burgerMenuBtn').style.backgroundColor = isDarkMode ? '#3735f2' : '#fff';
+            document.getElementById('burgerMenuBtn').style.color = isDarkMode ? '#fff' : '#3735f2';
             updateStartStopBtnColor();
         }
 
@@ -297,13 +294,13 @@
         function updateStartStopBtnColor() {
             const startStopBtn = document.getElementById('startStopBtn');
             if (isRunning) {
-                startStopBtn.style.backgroundColor = isDarkMode ? "#101010" : "#fff";
-                startStopBtn.style.borderColor = isDarkMode ? "#fff" : "#101010";
-                startStopBtn.style.color = isDarkMode ? "#fff" : "#101010";
+                startStopBtn.style.backgroundColor = isDarkMode ? "#3735f2" : "#fff";
+                startStopBtn.style.borderColor = isDarkMode ? "#fff" : "#3735f2";
+                startStopBtn.style.color = isDarkMode ? "#fff" : "#3735f2";
             } else {
-                startStopBtn.style.backgroundColor = isDarkMode ? "#fff" : "#101010";
-                startStopBtn.style.borderColor = isDarkMode ? "#101010" : "#fff";
-                startStopBtn.style.color = isDarkMode ? "#101010" : "#fff";
+                startStopBtn.style.backgroundColor = isDarkMode ? "#fff" : "#3735f2";
+                startStopBtn.style.borderColor = isDarkMode ? "#3735f2" : "#fff";
+                startStopBtn.style.color = isDarkMode ? "#3735f2" : "#fff";
             }
         }
 
